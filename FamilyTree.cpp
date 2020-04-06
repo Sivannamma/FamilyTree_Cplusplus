@@ -81,12 +81,13 @@ void Tree::deleteTree(Node *root) {
         deleteTree(root->getFather());
         deleteTree(root->getMother());
         // std::cout << "Deleting node: " << root->getName() << std::endl;
-        delete (root);
+
         if (root->getFather() != nullptr)
             root->setFatherNull();
         if (root->getMother() != nullptr)
             root->setMotherNull();
 
+	delete (root);
 
     }
 
