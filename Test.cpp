@@ -2,7 +2,7 @@
 // Created by sivannamma on 4/5/20.
 //
 #include "doctest.h"
-#include "FamilyTree.hpp"
+#include "ancestorTree.h"
 
 using namespace family;
 
@@ -21,8 +21,8 @@ TEST_CASE ("find function test") {
             CHECK((T.find("me") == string("sivan")));
             CHECK((T.find("mother") == string("tamar")));
             CHECK((T.find("father") == string("igeal")));
-            CHECK((T.find("grandfather") == string("nisim")));
-            CHECK((T.find("grandmother") == string("carmela")));
+            CHECK(((T.find("grandfather") == string("gamil"))||(T.find("grandfather") == string("nisim"))));
+            CHECK(((T.find("grandmother") == string("carmela"))||(T.find("grandmother") == string("shoshana"))));
             CHECK((T.find("great-grandmother") == string("naima")));
             CHECK((T.find("great-great-grandmother") == string("rooth")));
             CHECK((T.find("great-great-great-grandfather") == string("shavit")));
@@ -31,18 +31,18 @@ TEST_CASE ("find function test") {
     try {
         T.find("uncle");
     } catch (const exception &ex) {
-                CHECK(ex.what() == string("The tree cannot handle the uncle relation"));
+                CHECK(ex.what() == string("The tree cannot handle the 'uncle' relation"));
     }
 
     try {
         T.find("cousin");
     } catch (const exception &ex) {
-                CHECK(ex.what() == string("The tree cannot handle the cousin relation"));
+                CHECK(ex.what() == string("The tree cannot handle the 'cousin' relation"));
     }
     try {
         T.find("great-great-geat-great-grandfather");
     } catch (const exception &ex) {
-                CHECK(ex.what() == string("The tree cannot handle the great-great-geat-great-grandfather relation"));
+                CHECK(ex.what() == string("The tree cannot handle the 'great-great-geat-great-grandfather' relation"));
     }
 }
 
@@ -217,7 +217,7 @@ TEST_CASE ("Test remove") {
 
     T2.remove("moshe");
             CHECK(T2.relation("Amnon") == string("grandfather"));
-            CHECK(T2.find("grandmother") == string("Atida"));
+            CHECK(((T2.find("grandmother") == string("Atida"))||(T2.find("grandmother") == string("Shoshana"))));
 
 }
 
@@ -279,6 +279,7 @@ TEST_CASE ("Test remove2") {
             CHECK(T.relation("shoshana") == string("unrelated"));
 
 }
+
 
 
 
