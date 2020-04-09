@@ -2,7 +2,7 @@
 // Created by sivannamma on 4/5/20.
 //
 #include "doctest.h"
-#include "ancestorTree.hpp"
+#include "FamilyTree.hpp"
 
 using namespace family;
 
