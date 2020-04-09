@@ -1,4 +1,4 @@
-#include "ancestorTree.h"
+#include "ancestorTree.hpp"
 
 using namespace family;
 

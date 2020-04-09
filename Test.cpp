@@ -2,7 +2,7 @@
 // Created by sivannamma on 4/5/20.
 //
 #include "doctest.h"
-#include "ancestorTree.h"
+#include "ancestorTree.hpp"
 
 using namespace family;
 
@@ -279,9 +279,4 @@ TEST_CASE ("Test remove2") {
             CHECK(T.relation("shoshana") == string("unrelated"));
 
 }
-
-
-
-
-
 
